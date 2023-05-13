@@ -7,10 +7,42 @@ const ingredients = [
   'Condiments',
 ];
 
-const ingredientsItemEl = document.createElement('li');
-ingredientsItemEl.classList.add('item');
+// HTML містить порожній список ul#ingredients.
 
-const ingredientsListEl = document.querySelector('ingredients');
+// <ul id="ingredients"></ul>
 
-ingredientsListEl.append(...ingredients);
-console.log(ingredientsItemEl);
+// JavaScript містить масив рядків.
+
+// const ingredients = [
+//   "Potatoes",
+//   "Mushrooms",
+//   "Garlic",
+//   "Tomatos",
+//   "Herbs",
+//   "Condiments",
+// ];
+
+// Напиши скрипт, який для кожного елемента масиву ingredients:
+
+// Створить окремий елемент <li>. Обов'язково використовуй метод document.createElement().
+// Додасть назву інгредієнта як його текстовий вміст.
+// Додасть елементу клас item.
+// Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
+
+const ingredientsListEl = document.querySelector('#ingredients');
+
+const listItemEl = createList(ingredients);
+
+function createList(array) {
+  let elementList = [];
+  for (let item of array) {
+    const listItem = document.createElement('li');
+    listItem.classList.add('item');
+    listItem.textContent = item;
+    elementList.push(listItem);
+  }
+  return elementList;
+}
+
+ingredientsListEl.append(...listItemEl);
+
