@@ -29,20 +29,15 @@ const ingredients = [
 // Додасть елементу клас item.
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 
-const ingredientsListEl = document.querySelector('#ingredients');
+const ingredientsListEl = document.querySelector(`#ingredients`);
 
-const listItemEl = createList(ingredients);
+const ingredientsItemsEl = ingredients.map(item => {
+  const ingredientItemEl = document.createElement('li');
+  ingredientItemEl.classList.add('item');
+  ingredientItemEl.textContent = item;
+  return ingredientItemEl
+});
 
-function createList(array) {
-  let elementList = [];
-  for (let item of array) {
-    const listItem = document.createElement('li');
-    listItem.classList.add('item');
-    listItem.textContent = item;
-    elementList.push(listItem);
-  }
-  return elementList;
-}
-
-ingredientsListEl.append(...listItemEl);
+ingredientsListEl.append(...ingredientsItemsEl);
+ 
 
