@@ -1,5 +1,4 @@
 const refs = {
-  bodyEl: document.querySelector('body'),
   colorEl: document.querySelector('.color'),
   changeColorEl: document.querySelector('.change-color'),
 }
@@ -7,7 +6,7 @@ const refs = {
 refs.changeColorEl.addEventListener('click', () => {
   const color = getRandomHexColor();
   refs.colorEl.textContent = color;
-  refs.bodyEl.style.backgroundColor = color;
+  document.body.style.backgroundColor = color;
 });
 
 function getRandomHexColor() {
